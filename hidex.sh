@@ -25,10 +25,12 @@ function check_env(){
 function build_module(){
     echo -e "\nBuild $1 default release"
     ./gradlew -q -p $1 assembleRelease
-    if [ -f  $1/build/intermediates/bundles/release/classes.jar ]
+    # if [ -f  $1/build/intermediates/bundles/release/classes.jar ]
+    if [ -f  $1/build/intermediates/aar_main_jar/release/classes.jar ]
     then
         echo "Copy classes.jar to $3/$2"
-        cp $1/build/intermediates/bundles/release/classes.jar $3/$2
+        # cp $1/build/intermediates/bundles/release/classes.jar $3/$2
+        cp $1/build/intermediates/aar_main_jar/release/classes.jar $3/$2
     fi
     if [ -f $1/build/libs/$1.jar ]
     then
